@@ -1,0 +1,60 @@
+@import 'colors';
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, body * {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style-type: none;
+  }
+}
+
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: white;
+  font-family: sans-serif;
+
+  #app {
+    height: 100%;
+    width: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .page {
+      width: 100%;
+      height: 100%;
+      max-width: 850px;
+
+      @media(max-width: 700px) {
+        width: 100%;
+        height: 100%;
+      }
+      @media(min-width: 701px) {
+        width: 80%;
+        height: 80%;
+      }
+    }
+
+  }
+}
+
