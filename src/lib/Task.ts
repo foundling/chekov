@@ -13,6 +13,7 @@ class TaskDetails {
 export default class Task {
 
   constructor({
+    id = null,
     text = '',
     completed = false,
     createdOn = new Date(),
@@ -20,6 +21,7 @@ export default class Task {
     details = new TaskDetails()
   } = {}) {
 
+    this.id = id
     this.text = text 
     this.completed = completed
     this.createdOn = createdOn

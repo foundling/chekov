@@ -40,6 +40,12 @@
 <script>
   export default {
     name: 'Page',
+    data() {
+      return {
+        headerPct: 15,
+        footerPct: 15
+      }
+    },
     computed: {
       headerExists() {
         return Boolean(this.$slots.header)
@@ -50,13 +56,13 @@
       pageStyle() {
         return {
           header: {
-            height: this.headerExists ? '15%' : '0%',
+            height: this.headerExists ? `${this.headerPct}%` : '0%',
           },
           content: {
-            height: `${100 - ((Number(this.headerExists) + Number(this.footerExists)) * 15)}%`
+            height: `${100 - (this.headerExists ? this.headerPct : 0) - (this.footerExists ? this.footerPct : 0)}%`,
           },
           footer: {
-            height: this.footerExists ? '15%' : '0%',
+            height: this.footerExists ? `${this.footerPct}%` : '0%',
           }
         }
       }

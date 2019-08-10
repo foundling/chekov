@@ -1,10 +1,11 @@
 <template>
   <Page>
-    <div class="landing" slot="content">
-      <router-link to="/lists">
-        <h1>Chekov</h1>
-      </router-link>
-    </div>
+    <router-link 
+    to="/lists"
+    slot="content" 
+    class="landing"> 
+      <h1>Chekov</h1>
+    </router-link>
   </Page>
 </template>
 

@@ -1,8 +1,11 @@
 <template>
-  <Page class="lists">
+  <Page class="tasklists">
+
       <TasklistHeader 
       slot="content"
       v-for="tasklist in tasklists"
+      :tasklist="tasklist"
+      :id="tasklist.id"
       :name="tasklist.name" />
 
       <Footer slot="footer" />
@@ -19,11 +22,13 @@
   import TasklistHeader from '@/components/TasklistHeader'
 
   export default Vue.extend({
-    name: 'lists',
+    name: 'Lists',
     components: { Page, TasklistHeader, Footer },
     computed: mapState({
       tasklists: state => state.tasklists
-    })
+    }),
+    methods: {
+    }
   })
 
 </script>

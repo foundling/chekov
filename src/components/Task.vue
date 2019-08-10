@@ -1,8 +1,8 @@
 <template>
-  <li class="task">
-    <div class="task-header">{{ title }}</div>
-    <div v-if="open" class="task-body">task body</div>
-  </li>
+  <div class="task">
+    <TaskHeader to="" :task="task" />
+    <TaskBody   :task="task" />
+  </div>
 </template>
 
 <style lang="scss" scoped>
@@ -10,23 +10,29 @@
   @import "@/assets/scss/colors.scss";
 
   .task {
-    height: 20%;
+    height: 100%;
     .task-header {
-      height: 100%;
+      height: 20%;
       background: white;
     }
     .task-body {
+      height: 80%;
+      background: aqua;
+      overflow-y: scroll;
     }
   }
 
 </style>
 
 <script>
+
+  import TaskHeader from './TaskHeader'
+  import TaskBody from './TaskBody'
+
   export default {
     name: 'Task',
+    components: { TaskHeader, TaskBody },
     props: {
-      title: String,
-      open: Boolean,
       task: Object
     },
     methods: {
