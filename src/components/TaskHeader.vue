@@ -1,7 +1,5 @@
 <template>
-  <router-link 
-    :to="taskView"
-    class="task-header">
+  <router-link :to="taskView" class="task-header">
     {{ task.text }}
   </router-link>
 </template>
@@ -27,10 +25,12 @@
     },
     computed: {
       taskView() {
-        if (this.$route.name === 'List') 
+        if (this.$route.name === 'Tasklist') 
           return `${this.$route.path}/task/${this.task.id}` 
         else if (this.$route.name === 'Task')
           return `${this.task.id}`
+        else
+          console.warn('current route not matched in TaskHeader taskView computed fn determining route')
       }
     }
   }

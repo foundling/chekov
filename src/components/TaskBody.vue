@@ -1,15 +1,25 @@
 <template>
-  <router-link 
-    class="task-body">
-    {{ task.text }}
-  </router-link>
+  <div class="task-body">
+    <textarea>{{ task.text }}</textarea>
+  </div>
 </template>
 
 <style lang="scss" scoped>
   .task-body {
     display: flex;
-    height: 100%;
     background: gray;
+
+    textarea {
+      width: 100%;
+      border: none;
+      padding: 20px;
+      background: scale-color(whitesmoke, $lightness: 90%);
+
+      &:focus {
+        outline: none;
+      }
+
+    }
   }
 </style>
 

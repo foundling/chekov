@@ -1,10 +1,14 @@
 <template>
   <Page class="tasklists">
 
-      <TaskHeader 
-      v-for="task in tasklist.tasks" 
-      :task="task"
-      slot="content" />
+    <Header :task="tasklist" slot="header" />
+
+    <TaskHeader 
+    v-for="task in tasklist.tasks" 
+    :task="task"
+    slot="content" />
+
+    <Footer slot="footer"></Footer>
 
   </Page>
 </template>
@@ -15,11 +19,12 @@
   import { mapState } from 'vuex'
 
   import Page from '@/components/Page'
-  import Footer from '@/components/Footer'
   import TaskHeader from '@/components/TaskHeader'
+  import Header from '@/components/Header'
+  import Footer from '@/components/Footer'
 
   export default Vue.extend({
-    name: 'List',
+    name: 'Tasklist',
     components: { Page, TaskHeader },
     computed: mapState({
       tasklist: function(state) { 

@@ -1,4 +1,4 @@
-class TaskDetails {
+export class TaskDetails {
 
   constructor({
     text = '',

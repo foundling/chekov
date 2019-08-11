@@ -2,9 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Landing from './views/Landing.vue'
-import Lists from './views/Lists.vue'
-import List from './views/List.vue'
+import Tasklists from './views/Tasklists.vue'
+import Tasklist from './views/Tasklist.vue'
 import Task from './views/Task.vue'
+import Settings from './views/Settings.vue'
 
 Vue.use(Router)
 
@@ -19,18 +20,23 @@ export default new Router({
     },
     {
       path: '/lists',
-      name: 'Lists',
-      component: Lists
+      name: 'Tasklists',
+      component: Tasklists
     },
     {
       path: '/list/:listId',
-      name: 'List',
-      component: List
+      name: 'Tasklist',
+      component: Tasklist
     },
     {
       path: '/list/:listId/task/:taskId',
       name: 'Task',
       component: Task
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: Settings
     }
   ]
 })

@@ -1,7 +1,6 @@
 <template>
   <router-link 
     :to="tasklistRoute"
-    @click="$emit('navigation', id)"
     class="tasklist-header">
     {{ name }}
   </router-link>

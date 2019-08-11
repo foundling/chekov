@@ -1,12 +1,26 @@
 <template>
-  <Page class="tasklists">
+  <Page>
 
-      <TaskHeader 
-      :task="task"
-      slot="content" />
+    <div class="task" slot="content">
+      <TaskHeader class="task-header" :task="task" />
+      <TaskBody class="task-body" :task="task" />
+    </div>
 
   </Page>
 </template>
+
+<style lang="scss">
+  .task {
+    height: 100%;
+    .task-header {
+      height: 20%;
+    }
+    .task-body {
+      height: 80%;
+      width: 100%;
+    }
+  }
+</style>
 
 <script lang="ts">
 
@@ -16,10 +30,11 @@
   import Page from '@/components/Page'
   import Footer from '@/components/Footer'
   import TaskHeader from '@/components/TaskHeader'
+  import TaskBody from '@/components/TaskBody'
 
   export default Vue.extend({
     name: 'List',
-    components: { Page, TaskHeader },
+    components: { Page, TaskHeader, TaskBody },
     computed: mapState({
       task: function(state) { 
         const { listId, taskId } = this.$route.params

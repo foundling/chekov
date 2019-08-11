@@ -1,7 +1,7 @@
 <template>
   <div class="task">
-    <TaskHeader to="" :task="task" />
-    <TaskBody   :task="task" />
+    <TaskHeader :task="task" />
+    <TaskBody :task="task" />
   </div>
 </template>
 
@@ -34,10 +34,6 @@
     components: { TaskHeader, TaskBody },
     props: {
       task: Object
-    },
-    methods: {
-    },
-    computed: {
     }
   }
 </script>

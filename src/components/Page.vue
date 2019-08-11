@@ -1,15 +1,15 @@
 <template>
   <div class="page">
 
-    <div :style="pageStyle.header" class="header-container">
+    <div :style="pageStyle.header" class="app-page">
       <slot v-if="headerExists" name="header" />
     </div>
 
-    <div :style="pageStyle.content" class="scroll-container">
+    <div :style="pageStyle.content" class="app-body">
       <slot name="content" />
     </div>
 
-    <div :style="pageStyle.footer" class="footer-container">
+    <div :style="pageStyle.footer" class="app-footer">
       <slot v-if="footerExists" name="footer" />
     </div>
 
@@ -22,15 +22,13 @@
   .page {
     background: $light-gray; 
 
-    .scroll-container {
-      height: 100%;
+    .app-body {
       width: 100%;
       overflow-y: scroll;
     }
 
-    .footer-container {
+    .app-footer {
       .footer {
-        height: 100%;
       }
     }
 
@@ -38,8 +36,12 @@
 </style>
 
 <script>
+
+  import Footer from '@/components/Footer'
+
   export default {
     name: 'Page',
+    components: { Footer },
     data() {
       return {
         headerPct: 15,
@@ -68,4 +70,5 @@
       }
     }
   }
+
 </script>

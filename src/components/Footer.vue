@@ -1,12 +1,12 @@
 <template>
-  <div class="footer">
-  </div>
+  <footer>Route Name: {{ $route.name }}</footer>
 </template>
 
 <style lang="scss">
   .footer {
-    height: 15%;
-    background: white;
+    background: red;
+    height: 100%;
+    border: 1px solid black;
   }
 </style>
 
