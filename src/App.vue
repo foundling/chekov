@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-    <AppHeader class="app-header" v-if="layout.header" />
+    <AppHeader class="app-header" v-if="showHeader" />
     <AppContent>
       <router-view class="app-content" :layout.sync="layout" />
     </AppContent>
-    <AppFooter class="app-footer" v-if="layout.footer" />
+    <AppFooter class="app-footer" v-if="showFooter" />
   </div>
 </template>
 
 <style lang="scss">
+
   @import '@/assets/scss/base.scss';
+
   #app { 
     display: flex;
     min-height: 100vh;
@@ -23,6 +25,7 @@
     height: 10%;
     width: 100%;
   }
+
 </style>
 
 <script>
@@ -44,6 +47,14 @@
           header: false,
           footer: false
         }
+      }
+    },
+    computed: {
+      showHeader() {
+        return this.layout.header
+      },
+      showFooter() {
+        return this.layout.footer
       }
     }
   }

@@ -5,7 +5,12 @@
 </template>
 
 <style lang="scss">
-  @import '@/assets/scss/base.scss';
+  .app-content {
+    height: 100%;
+    max-height: 100%;
+    overflow-y: scroll; 
+    -webkit-overflow-scrolling: touch;
+  }
 </style>
 
 <script>

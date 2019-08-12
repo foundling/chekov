@@ -30,6 +30,9 @@
   export default Vue.extend({
     name: 'List',
     components: { AppContent, TaskHeader, TaskBody },
+    created() {
+      this.$emit('update:layout', { header: true, footer: true })
+    },
     computed: mapState({
       task: function(state) { 
         const { listId, taskId } = this.$route.params

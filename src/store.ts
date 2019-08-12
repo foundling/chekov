@@ -51,7 +51,14 @@ export default new Vuex.Store({
           new Task({ text: 'OSTEP', id: 1 }),
         ]}
       ),
-
+      new Tasklist({ 
+        id: 5,
+        name: 'podcasts',
+        tasks: [
+          new Task({ text: 'The Shrink Nextdoor', id: 0 }),
+          new Task({ text: 'Revisionist History', id: 1 }),
+        ]}
+      )
     ]
   },
   mutations: {
