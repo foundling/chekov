@@ -1,21 +1,19 @@
 <template>
+  <header>{{ $route.path }}</header>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+  header {
+    background: lightgreen;
+  }
 </style>
 
 <script>
   export default {
-    name: '',
-    props: {
-    },
+    name: 'Header',
     data: function() {
       return {
       }
-    },
-    methods: {
-    },
-    computed: {
     }
   }
 </script>

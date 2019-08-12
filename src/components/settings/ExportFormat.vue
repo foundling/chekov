@@ -1,5 +1,5 @@
 <template>
-  <div class="appearance">
+  <div class="export-format">
 
     <h1>Export Format</h1>
     <label>Export Format:</label>
@@ -17,7 +17,7 @@
 
   @import "@/assets/scss/colors.scss";
 
-  .appearance {
+  .export-format {
     height: '100%';
   }
 
@@ -25,18 +25,8 @@
 
 <script>
 
-  import TaskHeader from './TaskHeader'
-  import TaskBody from './TaskBody'
-
   export default {
-    name: 'ExportFormat',
-    components: {},
-    props: {
-    },
-    methods: {
-    },
-    computed: {
-    }
+    name: 'ExportFormat'
   }
 </script>
 

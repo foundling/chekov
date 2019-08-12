@@ -1,12 +1,12 @@
 <template>
-  <footer>Route Name: {{ $route.name }}</footer>
+  <footer>
+    <router-link to="/settings">[ Click for Settings ]</router-link>
+  </footer>
 </template>
 
 <style lang="scss">
-  .footer {
-    background: red;
-    height: 100%;
-    border: 1px solid black;
+  footer {
+    background: lightblue;
   }
 </style>
 

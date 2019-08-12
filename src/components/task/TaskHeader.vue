@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="taskView" class="task-header">
+  <router-link :to="taskRoute" class="task-header">
     {{ task.text }}
   </router-link>
 </template>
@@ -24,7 +24,7 @@
       }
     },
     computed: {
-      taskView() {
+      taskRoute() {
         if (this.$route.name === 'Tasklist') 
           return `${this.$route.path}/task/${this.task.id}` 
         else if (this.$route.name === 'Task')

@@ -1,17 +1,10 @@
 <template>
-  <Page>
-    <router-link 
-    to="/lists"
-    slot="content" 
-    class="landing"> 
-      <h1>Chekov</h1>
-    </router-link>
-  </Page>
+  <router-link class="landing" to="/lists">
+    <h1 class="app-logo">Chekov</h1>
+  </router-link>
 </template>
 
 <style lang="scss">
-  @import '@/assets/scss/base.scss';
-
   .landing {
     height: 100%;
     width: 100%;
@@ -22,13 +15,14 @@
 </style>
 
 <script>
-  import Page from '@/components/Page'
-  import store from '@/store'
 
   export default {
     name: 'Landing',
-    components: {
-      Page
+    created() {
+      this.$emit('update:layout', { header: false, footer: false })
+    },
+    data() {
+      return {}
     }
   }
 </script>

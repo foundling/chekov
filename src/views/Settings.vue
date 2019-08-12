@@ -1,17 +1,16 @@
 <template>
-  <Page>
+  <AppContent>
 
+    <h1>Settings</h1>
     <div class="settings" slot="content">
-
       <Appearance />
       <Sync />
       <ExportFormat />
       <ImportFormat />
       <PrivacyPolicy />
-
     </div>
 
-  </Page>
+  </AppContent>
 </template>
 
 <style lang="scss">
@@ -25,17 +24,19 @@
   import Vue from 'vue'
   import { mapState } from 'vuex'
 
-  import Page from '@/components/Page'
-  import Footer from '@/components/Footer'
-  import Appearance from '@/components/Appearance'
-  import Sync from '@/components/Sync'
-  import ExportFormat from '@/components/ExportFormat'
-  import ImportFormat from '@/components/ImportFormat'
-  import PrivacyPolicy from '@/components/PrivacyPolicy'
+  import AppContent from '@/components/page/AppContent'
+  import Appearance from '@/components/settings/Appearance'
+  import Sync from '@/components/settings/Sync'
+  import ExportFormat from '@/components/settings/ExportFormat'
+  import ImportFormat from '@/components/settings/ImportFormat'
+  import PrivacyPolicy from '@/components/settings/PrivacyPolicy'
 
   export default Vue.extend({
     name: 'Settings',
-    components: { Page, Appearance, Sync, ExportFormat, ImportFormat, PrivacyPolicy },
+    created() {
+      this.$emit('update:layout', { header: false, footer: true }) 
+    },
+    components: { AppContent, Appearance, Sync, ExportFormat, ImportFormat, PrivacyPolicy },
     computed: mapState({
       task: function(state) { 
         const { listId, taskId } = this.$route.params

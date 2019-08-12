@@ -1,5 +1,5 @@
 <template>
-  <div class="appearance">
+  <div class="import-format">
 
     <h1>Import Format</h1>
     <select>
@@ -15,7 +15,7 @@
 
   @import "@/assets/scss/colors.scss";
 
-  .appearance {
+  .import-format {
     height: '100%';
   }
 
@@ -23,19 +23,8 @@
 
 <script>
 
-  import TaskHeader from './TaskHeader'
-  import TaskBody from './TaskBody'
-
   export default {
     name: 'Import',
-    components: {
-    },
-    props: {
-    },
-    methods: {
-    },
-    computed: {
-    }
   }
 </script>
 

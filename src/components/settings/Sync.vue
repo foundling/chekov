@@ -1,5 +1,5 @@
 <template>
-  <div class="appearance">
+  <div class="sync">
 
     <h1>Sync</h1>
     <select>
@@ -15,7 +15,7 @@
 
   @import "@/assets/scss/colors.scss";
 
-  .appearance {
+  .sync {
     height: '100%';
   }
 
@@ -23,18 +23,8 @@
 
 <script>
 
-  import TaskHeader from './TaskHeader'
-  import TaskBody from './TaskBody'
-
   export default {
-    name: 'Sync',
-    components: {},
-    props: {
-    },
-    methods: {
-    },
-    computed: {
-    }
+    name: 'Sync'
   }
 </script>
 

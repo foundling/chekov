@@ -16,27 +16,27 @@ export default new Router({
     {
       path: '/',
       name: 'Landing',
-      component: Landing
+      component: Landing,
     },
     {
       path: '/lists',
       name: 'Tasklists',
-      component: Tasklists
+      component: Tasklists,
     },
     {
       path: '/list/:listId',
       name: 'Tasklist',
-      component: Tasklist
+      component: Tasklist,
     },
     {
       path: '/list/:listId/task/:taskId',
       name: 'Task',
-      component: Task
+      component: Task,
     },
     {
       path: '/settings',
       name: 'Settings',
-      component: Settings
+      component: Settings,
     }
   ]
 })

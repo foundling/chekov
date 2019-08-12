@@ -32,18 +32,9 @@
 
 <script>
 
-  import TaskHeader from './TaskHeader'
-  import TaskBody from './TaskBody'
-
   export default {
     name: 'Appearance',
-    components: {},
-    props: {
-    },
-    methods: {
-    },
-    computed: {
-    }
+    components: {}
   }
 </script>
 

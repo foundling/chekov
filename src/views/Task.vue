@@ -1,12 +1,8 @@
 <template>
-  <Page>
-
-    <div class="task" slot="content">
-      <TaskHeader class="task-header" :task="task" />
-      <TaskBody class="task-body" :task="task" />
-    </div>
-
-  </Page>
+  <div class="task">
+    <TaskHeader class="task-header" :task="task" />
+    <TaskBody class="task-body" :task="task" />
+  </div>
 </template>
 
 <style lang="scss">
@@ -27,14 +23,13 @@
   import Vue from 'vue'
   import { mapState } from 'vuex'
 
-  import Page from '@/components/Page'
-  import Footer from '@/components/Footer'
-  import TaskHeader from '@/components/TaskHeader'
-  import TaskBody from '@/components/TaskBody'
+  import AppContent from '@/components/page/AppContent'
+  import TaskHeader from '@/components/task/TaskHeader'
+  import TaskBody from '@/components/task/TaskBody'
 
   export default Vue.extend({
     name: 'List',
-    components: { Page, TaskHeader, TaskBody },
+    components: { AppContent, TaskHeader, TaskBody },
     computed: mapState({
       task: function(state) { 
         const { listId, taskId } = this.$route.params
