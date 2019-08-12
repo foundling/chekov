@@ -34,9 +34,19 @@
   export default Vue.extend({
     name: 'Settings',
     created() {
-      this.$emit('update:layout', { header: false, footer: true }) 
+      this.$emit('update:layout', { 
+        header: false, 
+        footer: true 
+      }) 
     },
-    components: { AppContent, Appearance, Sync, ExportFormat, ImportFormat, PrivacyPolicy },
+    components: { 
+      AppContent,
+      Appearance,
+      ExportFormat,
+      ImportFormat,
+      PrivacyPolicy, 
+      Sync,
+    },
     computed: mapState({
       task: function(state) { 
         const { listId, taskId } = this.$route.params

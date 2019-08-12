@@ -62,7 +62,16 @@ export default new Vuex.Store({
     ]
   },
   mutations: {
-
+    TASK_TEXT_UPDATE: (state, { tasklistId, taskId, text }) => {
+      state.tasklists[tasklistId].tasks[taskId].text = text
+    },
+    TASK_DETAILS_UPDATE: (state, { tasklistId, taskId, details }) => {
+      state.tasklists[taskId].tasks[taskId].details.text = details.text
+      state.tasklists[taskId].tasks[taskId].details.dueDate = details.dueDate
+    },
+    UPDATE_TASKS: (state, { tasks, listId }) => {
+      state.tasklists[listId].tasks = tasks
+    }
   },
   actions: {
 

@@ -1,15 +1,16 @@
 <template>
-  <div>
+  <draggable v-model="tasks">
     <TaskHeader 
-    v-for="task in tasklist.tasks" 
+    v-for="task in tasks" 
     :task="task" />
-  </div>
+  </draggable>
 </template>
 
 <script lang="ts">
 
   import Vue from 'vue'
   import { mapState } from 'vuex'
+  import draggable from 'vuedraggable'
 
   import AppContent from '@/components/page/AppContent'
   import TaskHeader from '@/components/task/TaskHeader'
@@ -22,12 +23,19 @@
         footer: true,
       })
     },
-    components: { AppContent, TaskHeader },
-    computed: mapState({
-      tasklist: function(state) { 
-        return state.tasklists[this.$route.params.listId] 
+    components: { AppContent, TaskHeader, draggable },
+    computed: {
+      tasks: {
+        get() {
+          return this.$store.state.tasklists[this.$route.params.listId].tasks
+        },
+        set(tasks) {
+          console.log('on set: ', tasks.map(t => t.text))
+          const { listId } = this.$route.params
+          this.$store.commit('UPDATE_TASKS', { tasks, listId })
+        }
       }
-    })
+    }
   })
 
 </script>

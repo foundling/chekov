@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <button @click="navigate" class="settings fas fa-cog fa-2x" />
+    <button @click="navigate" class="settings fa-circle fa-2x" :class="buttonClasses" />
   </footer>
 </template>
 
@@ -12,6 +12,7 @@
       display: flex;
     }
     .settings {
+      width: 10%;
       height: 100%;
       border: none;
       background: none;
@@ -34,8 +35,14 @@
           this.$router.push({ name: 'Settings' })
         }
       }
+    },
+    computed: {
+      buttonClasses() {
+        return {
+          'fas': this.$route.name === 'Settings', 
+          'far': this.$route.name !== 'Settings', 
+        }
+      }
     }
   }
 </script>
-
-

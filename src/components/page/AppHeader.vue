@@ -1,5 +1,6 @@
 <template>
   <header>
+    <button v-if="backbuttonRequired" @click="goBack" class="nav-button fas fa-chevron-left fa-2x" />
   </header>
 </template>
 
@@ -11,6 +12,7 @@
     background: lightgreen;
 
     .nav-button {
+      width: 10%;
       background: none;
       border: none;
     }
@@ -25,11 +27,24 @@
     },
     methods: {
       goBack() {
-        this.$router.go(-1)
+        if (this.$route.name === 'Tasklists') {
+          this.$router.push({ name: 'Landing' })
+        } else if (this.$route.name === 'Tasklist') {
+          this.$router.push({ name: 'Tasklists' })
+        } else if (this.$route.name === 'Task') {
+          this.$router.push({ 
+            name: 'Tasklist',
+            params: { 
+              listId: this.$route.params.listId 
+            } 
+          })
+        }
       }
     },
     computed: {
-
+      backbuttonRequired() {
+        return ['Task', 'Tasklist'].includes(this.$route.name)
+      }
     }
   }
 </script>
