@@ -1,6 +1,15 @@
 <template>
   <header>
-    <button v-if="backbuttonRequired" @click="goBack" class="nav-button fas fa-chevron-left fa-2x" />
+    <button
+    v-if="backbuttonRequired"
+    @click="goBack" 
+    class="nav-button fas fa-chevron-left fa-2x" />
+
+    <button class="placeholder-button" />
+    <button class="placeholder-button" />
+    <button class="placeholder-button" />
+    <button class="cloud-sync-button fas fa-cloud fa-2x" />
+
   </header>
 </template>
 
@@ -9,11 +18,21 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background: lightgray;
 
-    .nav-button {
-      width: 10%;
+    .nav-button, .cloud-sync-button {
+      color: red;
+      font-size: 1.5em;
+    }
+    .nav-button, .cloud-sync-button, .placeholder-button {
+      width: 20%;
       background: none;
       border: none;
+    }
+
+    .placeholder-button {
+      border: none;
+      background: transparent;
     }
   }
 </style>

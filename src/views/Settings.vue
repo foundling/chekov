@@ -17,6 +17,10 @@
   .settings {
     height: 100%;
   }
+
+  h1 {
+    padding: 5% 10%;
+  }
 </style>
 
 <script lang="ts">

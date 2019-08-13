@@ -1,7 +1,8 @@
 <template>
-  <draggable v-model="tasks">
+  <draggable v-model="tasks" handle=".drag-handle">
     <TaskHeader 
     v-for="task in tasks" 
+    :key="task.id"
     :task="task" />
   </draggable>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <draggable v-model="tasklists">
+  <draggable v-model="tasklists" handle=".drag-handle">
     <TasklistHeader 
     v-for="tasklist in tasklists"
     :tasklist="tasklist"
@@ -7,6 +7,12 @@
     :name="tasklist.name" /> 
   </draggable>
 </template>
+
+<style>
+  .sortable-ghost {
+    background: lightgray;
+  }
+</style>
 
 <script lang="ts">
 

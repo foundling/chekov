@@ -1,6 +1,6 @@
 <template>
   <router-link :to="taskRoute" class="task-header">
-    <span class="drag-handle-container">
+    <span class="drag-handle">
       <i class="fas fa-equals fa-2x" />
     </span>
     <span class="task-text-container">
@@ -22,7 +22,7 @@
     justify-content: center;
 
     .task-text-container {
-      width: 90%;
+      width: 80%;
       height: 100%;
       display: inline-flex;
       align-items: center;
@@ -30,35 +30,31 @@
 
       .task-text-input {
         text-align: center;
-        padding-right: 10%;
+        padding-right: 20%;
         border: none;
         background: transparent;
         height: 100%;
         width: 100%;
 
         &:disabled {
-          color: initial;
-        }
-        &:focus {
-          outline: none;
-          background: white;
+          -webkit-text-fill-color: #000000;
+          opacity: 1; /* required on iOS */
+          color: black;
         }
       }
     }
-    .drag-handle-container {
+    .drag-handle {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: center;
-      width: 10%;
+      width: 20%;
       height: 100%;
     }
   }
 </style>
 
 <script>
-  // draggable only if we're in tasklist view
-  // input editable only if in task view
   export default {
     name: 'TaskHeader',
     props: {

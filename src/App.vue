@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <AppHeader class="app-header" v-if="showHeader" />
-    <AppContent>
-      <router-view class="app-content" :layout.sync="layout" />
+    <AppContent class="app-content">
+      <router-view class="app-content-inner" :layout.sync="layout" />
     </AppContent>
     <AppFooter class="app-footer" v-if="showFooter" />
   </div>
@@ -13,18 +13,49 @@
   @import '@/assets/scss/base.scss';
 
   #app { 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+    max-height: 100%;
     display: flex;
-    min-height: 100vh;
-    max-height: 100vh;
+    background: whitesmoke;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .app-header {
+      height: 8%;
+    }
+    .app-content {
+      height: 82%;
+      width: 100%;
+
+      .app-content-inner {
+        height: 100%;
+      }
+    }
+    .app-footer {
+      height: 10%;
+    }
+    .app-header, .app-footer {
+      width: 100%;
+    }
+
   }
-  .app-content {
-    flex: 1;
-    width: 100%;
+
+  @media(max-width: 500px) {
+    #app {
+      padding: 0;
+      margin: 0;
+    }
   }
-  .app-header, .app-footer {
-    height: 10%;
-    width: 100%;
+  @media(min-width: 501px) {
+    #app {
+      padding: 5% 10%;
+      margin: 0;
+    }
   }
 
 </style>
