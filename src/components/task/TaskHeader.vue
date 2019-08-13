@@ -15,7 +15,6 @@
 
 <style lang="scss" scoped>
   .task-header {
-    background: aqua;
     height: 20%;
     display: flex;
     flex-direction: row;

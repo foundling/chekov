@@ -11,25 +11,12 @@
 
 <style lang="scss" scoped>
 
-  @import "@/assets/scss/colors.scss";
-
-  .toggle-component {
-  }
-
 </style>
 
 <script>
 
   export default {
-    name: 'ToggleComponent',
-    components: {  },
-    props: {
-    },
-    methods: {
-    },
-    computed: {
-    }
-  }
+    name: 'ToggleComponent'
 </script>
 
 

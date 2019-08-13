@@ -10,7 +10,6 @@
   .tasklist-header {
     height: 20%;
     display: flex;
-    background: aqua;
     align-items: center;
     justify-content: center;
   }

@@ -6,7 +6,6 @@
 
 <style lang="scss">
   footer {
-    background: lightblue;
     .router-link-active {
       height: 100%;
       display: flex;

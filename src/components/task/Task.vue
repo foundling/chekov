@@ -11,13 +11,12 @@
 
   .task {
     height: 100%;
+
     .task-header {
       height: 20%;
-      background: white;
     }
     .task-body {
       height: 80%;
-      background: aqua;
       overflow-y: scroll;
     }
   }
