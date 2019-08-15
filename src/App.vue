@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <AppHeader class="app-header" v-if="showHeader" />
-    <ScrollProgress :progress="scrollProgress">
-      <AppContent class="app-content" @scroll.native="onScroll">
+    <ScrollProgress> 
+      <AppContent class="app-content" >
         <router-view class="app-content-inner" :layout.sync="layout" />
       </AppContent>
     </ScrollProgress>
@@ -81,16 +81,6 @@
       },
       showFooter() {
         return this.layout.footer
-      }
-    },
-    methods: {
-      calculateProgress(scrollContainer) {
-        const possibleDistanceToMove = scrollContainer.scrollHeight - scrollContainer.clientHeight
-        const distanceFromTop = scrollContainer.scrollTop
-        return distanceFromTop / possibleDistanceToMove
-      },
-      onScroll: function({ target }) { 
-        this.scrollProgress = this.calculateProgress(target) 
       }
     }
   }

@@ -1,11 +1,11 @@
 <template>
-  <div class="scroll-progress">
+  <div class="scroll-progress"   v-on:scroll.native="sayHi">
 
     <div class="progress-bar-container">
       <div class="progress-bar" :style="progressStyle"></div>
     </div>
 
-    <slot></slot>
+    <slot ref="scroll-container"></slot>
 
   </div>
 </template>
@@ -35,11 +35,10 @@
 <script>
   export default {
     name: 'ScrollProgress',
-    props: {
-      progress: {
-        type: Number,
-        required: true
-      }     
+    data() {
+      return {
+        progress: 0,
+      }
     },
     computed: {
       progressStyle() {
@@ -47,6 +46,26 @@
           width: `${this.progress * 100}%`, 
         }
       }
+    },
+    methods: {
+      calculateProgress(scrollContainer) {
+        const possibleDistanceToMove = scrollContainer.scrollHeight - scrollContainer.clientHeight
+        const distanceFromTop = scrollContainer.scrollTop
+        return distanceFromTop / possibleDistanceToMove
+      },
+      updateProgress({ target }) {
+        const scrollContainer = this.$el.children[1]
+        if (target !== scrollContainer) {
+          return
+        }
+        this.progress = this.calculateProgress(target)
+      }
+    },
+    mounted() {
+      window.addEventListener('scroll', this.updateProgress, true)
+    },
+    destroyed() {
+      window.removeEventListener('scroll', this.updateProgress)
     }
   }
 </script>

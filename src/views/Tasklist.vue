@@ -19,10 +19,7 @@
   export default Vue.extend({
     name: 'Tasklist',
     created() {
-      this.$emit('update:layout', {
-        header: true,
-        footer: true,
-      })
+      this.$emit('update:layout', { header: true, footer: true })
     },
     components: { AppContent, TaskHeader, draggable },
     computed: {
@@ -31,7 +28,6 @@
           return this.$store.state.tasklists[this.$route.params.listId].tasks
         },
         set(tasks) {
-          console.log('on set: ', tasks.map(t => t.text))
           const { listId } = this.$route.params
           this.$store.commit('UPDATE_TASKS', { tasks, listId })
         }
