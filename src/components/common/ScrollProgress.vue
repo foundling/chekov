@@ -21,10 +21,10 @@
       top: 0;
       left: 0;
       width: 100%;
+      height: 1px;
 
       .progress-bar {
-        width: 60%;
-        height: 2px;
+        height: 100%;
         background: red;
       }
 
