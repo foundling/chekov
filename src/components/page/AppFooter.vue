@@ -10,7 +10,7 @@
     <button class="placeholder-button" />
     <button class="placeholder-button" />
 
-    <button @click="addTaskOrTasklist" class="add-button fas fa-plus fa-2x" />
+    <button v-if="isTaskView" @click="addTaskOrTasklist" class="add-button fas fa-plus fa-2x" />
 
   </footer>
 </template>
@@ -63,6 +63,9 @@
       }
     },
     computed: {
+      isTaskView() {
+        return ['Tasklist', 'Tasklists'].includes(this.$route.name)
+      },
       buttonClasses() {
         return {
           'fas fa-circle': this.$route.name === 'Settings', 
