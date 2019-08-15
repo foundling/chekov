@@ -1,11 +1,11 @@
 <template>
-  <draggable v-model="tasklists" handle=".drag-handle">
-    <TasklistHeader 
-    v-for="tasklist in tasklists"
-    :tasklist="tasklist"
-    :id="tasklist.id"
-    :name="tasklist.name" /> 
-  </draggable>
+    <draggable v-model="tasklists" handle=".drag-handle" >
+      <TasklistHeader 
+      v-for="tasklist in tasklists"
+      :tasklist="tasklist"
+      :id="tasklist.id"
+      :name="tasklist.name" /> 
+    </draggable>
 </template>
 
 <style>
@@ -22,16 +22,14 @@
 
   import AppContent from '@/components/page/AppContent'
   import TasklistHeader from '@/components/task/TasklistHeader'
+  import ScrollProgress from '@/components/common/ScrollProgress'
 
   export default Vue.extend({
     name: 'Tasklists',
     created() {
-      this.$emit('update:layout', {
-        header: true,
-        footer: true,
-      })
+      this.$emit('update:layout', { header: true, footer: true })
     },
-    components: { AppContent, TasklistHeader, draggable },
+    components: { AppContent, TasklistHeader, ScrollProgress, draggable },
     computed: {
       tasklists: {
         get(state) {

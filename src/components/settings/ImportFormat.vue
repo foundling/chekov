@@ -1,13 +1,9 @@
 <template>
   <div class="import-format">
-
-    <h1>Import Format</h1>
     <select>
       <option>url</option>
       <option>text input</option>
     </select>
-
-
   </div>
 </template>
 

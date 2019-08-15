@@ -14,6 +14,16 @@
 </template>
 
 <style lang="scss" scoped>
+
+  @import '@/assets/scss/colors.scss';
+
+  .sortable-ghost {
+    visibility: hidden;
+  }
+  .sortable-chosen:not(.sortable-ghost) {
+    //visibility: hidden;
+    background: $medium-gray;
+  }
   .task-header {
     height: 20%;
     display: flex;
@@ -35,15 +45,18 @@
         background: transparent;
         height: 100%;
         width: 100%;
+        font-family: 'Heebo', sans-serif;
+        font-size: 1em;
 
         &:disabled {
           -webkit-text-fill-color: #000000;
           opacity: 1; /* required on iOS */
-          color: black;
+          color: $black;
         }
       }
     }
     .drag-handle {
+      color: $black;
       display: flex;
       flex-direction: row;
       align-items: center;

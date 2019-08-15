@@ -39,7 +39,7 @@ select, input, textarea {
 }
 
 input:disabled {
-  color: black !important;
+  color: $black !important;
 }
 
 ul {
@@ -50,6 +50,15 @@ ul {
 li {
   list-style-type: none;
 }
+
+.hidden {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 
 
 

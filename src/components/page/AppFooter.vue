@@ -3,18 +3,22 @@
 
     <button 
     @click="navigate" 
-    class="settings-button fa-circle fa-2x" 
+    class="settings-button fa-2x" 
     :class="buttonClasses" />
 
     <button class="placeholder-button" />
     <button class="placeholder-button" />
     <button class="placeholder-button" />
-    <button class="placeholder-button" />
+
+    <button @click="addTaskOrTasklist" class="add-button fas fa-plus fa-2x" />
 
   </footer>
 </template>
 
 <style lang="scss">
+
+  @import '@/assets/scss/colors.scss';
+
   footer {
     display: flex;
 
@@ -22,7 +26,8 @@
       height: 100%;
       display: flex;
     }
-    .settings-button, .placeholder-button {
+    .settings-button, .placeholder-button, .add-button {
+      color: $black;
       height: 100%;
       margin: 0;
       padding: 0;
@@ -48,13 +53,20 @@
         } else {
           this.$router.push({ name: 'Settings' })
         }
+      },
+      addTaskOrTasklist() {
+        if (this.$route.name === 'Tasklists') {
+          this.$store.commit('ADD_TASKLIST')
+        } else if (this.$route.name === 'Tasklist') {
+          this.$store.commit('ADD_TASK', { listId: this.$route.params.listId })
+        }
       }
     },
     computed: {
       buttonClasses() {
         return {
-          'fas': this.$route.name === 'Settings', 
-          'far': this.$route.name !== 'Settings', 
+          'fas fa-circle': this.$route.name === 'Settings', 
+          'far fa-circle': this.$route.name !== 'Settings', 
         }
       }
     }

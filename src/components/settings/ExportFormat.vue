@@ -1,15 +1,11 @@
 <template>
   <div class="export-format">
-
-    <h1>Export Format</h1>
     <label>Export Format:</label>
     <select>
       <option>json</option>
       <option>markdown</option>
       <option>csv</option>
     </select>
-
-
   </div>
 </template>
 

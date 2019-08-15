@@ -10,6 +10,7 @@
     background: gray;
 
     textarea {
+      font-size: 3em !important;
       width: 100%;
       height: 100%;
       max-height: 100%;
@@ -20,6 +21,8 @@
       &:focus {
         outline: none;
       }
+
+      font-family: 'Roboto', sans-serif; 
 
     }
   }

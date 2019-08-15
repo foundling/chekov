@@ -1,7 +1,5 @@
 <template>
   <div class="appearance">
-
-    <h1>Appearance</h1>
     <div>
       <label>color: </label>
       <select>
@@ -10,13 +8,11 @@
         <option>monochrome</option>
       </select>
     </div>
-
     <div>
       <label>Font Size: </label>
       <input type="range" value="12" min="12" max="40" step="2"></input>
       </select>
     </div>
-
   </div>
 </template>
 

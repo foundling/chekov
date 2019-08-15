@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <AppHeader class="app-header" v-if="showHeader" />
-    <AppContent class="app-content">
-      <router-view class="app-content-inner" :layout.sync="layout" />
-    </AppContent>
+    <ScrollProgress :progress="scrollProgress">
+      <AppContent class="app-content" @scroll.native="onScroll">
+        <router-view class="app-content-inner" :layout.sync="layout" />
+      </AppContent>
+    </ScrollProgress>
     <AppFooter class="app-footer" v-if="showFooter" />
   </div>
 </template>
@@ -28,34 +30,24 @@
     .app-header {
       height: 8%;
     }
+
     .app-content {
-      height: 82%;
+      height: 100%;
       width: 100%;
 
       .app-content-inner {
         height: 100%;
       }
     }
+
     .app-footer {
       height: 10%;
     }
+
     .app-header, .app-footer {
       width: 100%;
     }
 
-  }
-
-  @media(max-width: 500px) {
-    #app {
-      padding: 0;
-      margin: 0;
-    }
-  }
-  @media(min-width: 501px) {
-    #app {
-      padding: 5% 10%;
-      margin: 0;
-    }
   }
 
 </style>
@@ -69,16 +61,18 @@
   import AppHeader from '@/components/page/AppHeader'
   import AppFooter from '@/components/page/AppFooter'
   import AppContent from '@/components/page/AppContent'
+  import ScrollProgress from '@/components/common/ScrollProgress'
 
   export default {
     name: 'App',
-    components: { AppHeader, AppFooter, AppContent },
-    data: function() { 
+    components: { AppHeader, AppFooter, AppContent, ScrollProgress },
+    data: function() {
       return {
         layout: {
           header: false,
           footer: false
-        }
+        },
+        scrollProgress: 0.0,
       }
     },
     computed: {
@@ -87,6 +81,16 @@
       },
       showFooter() {
         return this.layout.footer
+      }
+    },
+    methods: {
+      calculateProgress(scrollContainer) {
+        const possibleDistanceToMove = scrollContainer.scrollHeight - scrollContainer.clientHeight
+        const distanceFromTop = scrollContainer.scrollTop
+        return distanceFromTop / possibleDistanceToMove
+      },
+      onScroll: function({ target }) { 
+        this.scrollProgress = this.calculateProgress(target) 
       }
     }
   }

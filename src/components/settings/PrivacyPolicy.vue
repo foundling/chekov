@@ -1,6 +1,5 @@
 <template>
   <div class="privacy-policy">
-    <h1>Privacy Policy</h1>
     <p>
     Edible Interfaces is a suite of public utilities whose use require no personal information.
     We do not store any user data at all. 

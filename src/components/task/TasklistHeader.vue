@@ -12,6 +12,16 @@
 </template>
 
 <style lang="scss" scoped>
+
+  @import '@/assets/scss/colors.scss';
+
+  .sortable-ghost {
+    visibility: hidden;
+  }
+  .sortable-chosen:not(.sortable-ghost) {
+    background: $medium-gray;
+  }
+
   .tasklist-header {
     height: 20%;
     display: flex;
@@ -25,9 +35,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
+      font-family: 'Heebo', sans-serif;
+      font-size: 1em;
     }
+
     .drag-handle {
+      color: $black;
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -35,7 +48,9 @@
       width: 20%;
       height: 100%;
     }
+
   }
+
 </style>
 
 <script>

@@ -74,6 +74,12 @@ export default new Vuex.Store({
     },
     UPDATE_TASKLISTS: (state, tasklists) => {
       state.tasklists = tasklists
+    },
+    ADD_TASKLIST: (state) => {
+      state.tasklists.push(new Tasklist({ name: 'New Task' }))
+    },
+    ADD_TASK: (state, { listId }) => {
+      state.tasklists[listId].tasks.push(new Task({ text: 'New Task' }))
     }
   },
   actions: {

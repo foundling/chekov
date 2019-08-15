@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background: lightgray;
+    background: white;
 
     .nav-button, .cloud-sync-button {
       color: red;
