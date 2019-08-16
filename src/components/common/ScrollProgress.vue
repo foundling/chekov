@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-progress"   v-on:scroll.native="sayHi">
+  <div class="scroll-progress">
 
     <div class="progress-bar-container">
       <div class="progress-bar" :style="progressStyle"></div>

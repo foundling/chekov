@@ -1,6 +1,8 @@
 <template>
   <div class="task-body">
-    <textarea @change="updateTaskDetails">{{ task.details.text }}</textarea>
+    <textarea 
+    placeholder="enter details here ..." 
+    @change="updateTaskDetails">{{ task.details.text }}</textarea>
   </div>
 </template>
 

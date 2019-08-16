@@ -1,7 +1,5 @@
 <template>
-  <router-link 
-    :to="tasklistRoute"
-    class="tasklist-header">
+  <router-link :to="tasklistRoute" class="tasklist-header">
     <span class="drag-handle">
       <i class="fas fa-equals fa-2x" />
     </span>
@@ -18,8 +16,6 @@
   .sortable-ghost {
     visibility: hidden;
   }
-  .sortable-chosen:not(.sortable-ghost) {
-  }
 
   .tasklist-header {
     height: 20%;
@@ -29,8 +25,8 @@
 
     .tasklist-text-container {
       width: 80%;
-      padding-right: 20%;
       height: 100%;
+      padding-right: 20%;
       display: inline-flex;
       align-items: center;
       justify-content: center;

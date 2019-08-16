@@ -1,13 +1,13 @@
 <template>
   <router-link :to="taskRoute" class="task-header">
-    <span class="drag-handle">
+    <span :class="{'invisible': isTaskRoute}" class="drag-handle">
       <i class="fas fa-equals fa-2x" />
     </span>
     <span class="task-text-container">
       <input
       @change="updateTaskText"
       :value="task.text" 
-      :disabled="inputDisabled" 
+      :disabled="!isTaskRoute" 
       class="task-text-input" />
     </span>
   </router-link>
@@ -20,9 +20,7 @@
   .sortable-ghost {
     visibility: hidden;
   }
-  .sortable-chosen:not(.sortable-ghost) {
-    //visibility: hidden;
-  }
+
   .task-header {
     height: 20%;
     display: flex;
@@ -31,15 +29,17 @@
     justify-content: center;
 
     .task-text-container {
+      margin: 0;
+      padding: 0;
       width: 80%;
       height: 100%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      padding-right: 20%;
 
       .task-text-input {
         text-align: center;
-        padding-right: 20%;
         border: none;
         background: transparent;
         height: 100%;
@@ -88,10 +88,16 @@
       inputDisabled() {
         return this.$route.name !== 'Task'
       },
+      isTaskRoute() {
+        return this.$route.name === 'Task'
+      },
+      isTasklistRoute() {
+        return this.$route.name === 'Tasklist'
+      },
       taskRoute() {
-        if (this.$route.name === 'Tasklist') 
+        if (this.isTasklistRoute) 
           return `${this.$route.path}/task/${this.task.id}` 
-        else if (this.$route.name === 'Task')
+        else if (this.isTaskRoute)
           return `${this.task.id}`
         else
           console.warn('current route not matched in TaskHeader taskView computed fn determining route')

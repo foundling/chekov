@@ -2,7 +2,8 @@
   <div id="app">
     <AppHeader class="app-header" v-if="showHeader" />
     <ScrollProgress> 
-      <AppContent class="app-content" >
+      <!-- scoped slot here -->
+      <AppContent class="app-content">
         <router-view class="app-content-inner" :layout.sync="layout" />
       </AppContent>
     </ScrollProgress>
@@ -27,6 +28,7 @@
     align-items: center;
     justify-content: center;
     overflow-y: hidden;
+    overflow-x: hidden;
 
     .app-header {
       height: 8%;
@@ -38,6 +40,7 @@
 
       .app-content-inner {
         height: 100%;
+        width: 100%;
       }
     }
 
