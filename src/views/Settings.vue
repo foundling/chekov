@@ -26,6 +26,7 @@
       <h2 slot="header">Privacy Policy</h2>
       <PrivacyPolicy slot="content" />
     </ToggleComponent>
+
   </div>
 </template>
 
@@ -54,11 +55,15 @@
 
   export default Vue.extend({
     name: 'Settings',
+    data() {
+      return {
+      }
+    },
     created() {
       this.$emit('update:layout', { 
         header: true, 
         footer: true 
-      }) 
+      })
     },
     components: { 
       AppContent,
@@ -68,13 +73,7 @@
       PrivacyPolicy,
       ToggleComponent,
       Sync,
-    },
-    computed: mapState({
-      task: function(state) { 
-        const { listId, taskId } = this.$route.params
-        return state.tasklists[listId].tasks[taskId] 
-      }
-    })
+    }
   })
 
 </script>

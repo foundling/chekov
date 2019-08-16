@@ -49,7 +49,11 @@
     methods: {
       navigate() {
         if (this.$route.name === 'Settings') {
-          this.$router.go(-1)
+          this.$router.push(
+            this.previousRoute.path === '/' ? 
+              { name: 'Tasklists' } : 
+              this.previousRoute
+          )
         } else {
           this.$router.push({ name: 'Settings' })
         }
@@ -63,6 +67,9 @@
       }
     },
     computed: {
+      previousRoute() {
+        return this.$store.state.previousRoute
+      },
       isTaskView() {
         return ['Tasklist', 'Tasklists'].includes(this.$route.name)
       },

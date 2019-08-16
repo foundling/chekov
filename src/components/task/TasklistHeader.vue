@@ -19,7 +19,6 @@
     visibility: hidden;
   }
   .sortable-chosen:not(.sortable-ghost) {
-    background: $medium-gray;
   }
 
   .tasklist-header {

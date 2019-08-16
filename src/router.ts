@@ -6,10 +6,11 @@ import Tasklists from './views/Tasklists.vue'
 import Tasklist from './views/Tasklist.vue'
 import Task from './views/Task.vue'
 import Settings from './views/Settings.vue'
+import store from './store'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   mode: 'history',
   base: process.env.BASE_URL,
   routes: [
@@ -36,7 +37,14 @@ export default new Router({
     {
       path: '/settings',
       name: 'Settings',
-      component: Settings,
+      component: Settings
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  store.commit('UPDATE_PREVIOUS_ROUTE', from)
+  next()
+})
+ 
+export default router

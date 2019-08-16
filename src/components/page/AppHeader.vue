@@ -14,6 +14,8 @@
 </template>
 
 <style lang="scss">
+  @import '@/assets/scss/colors.scss';
+
   header {
     display: flex;
     flex-direction: row;
@@ -21,9 +23,10 @@
     background: white;
 
     .nav-button, .cloud-sync-button {
-      color: red;
+      color: $black;
       font-size: 1.5em;
     }
+
     .nav-button, .cloud-sync-button, .placeholder-button {
       width: 20%;
       background: none;

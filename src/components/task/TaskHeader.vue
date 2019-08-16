@@ -22,7 +22,6 @@
   }
   .sortable-chosen:not(.sortable-ghost) {
     //visibility: hidden;
-    background: $medium-gray;
   }
   .task-header {
     height: 20%;

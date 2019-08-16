@@ -1,0 +1,2 @@
+- can you delay drag so that it only fires if you hold for longer than a single click?
+- fade settings solid icon in & out on view change?

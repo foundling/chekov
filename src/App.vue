@@ -26,6 +26,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow-y: hidden;
 
     .app-header {
       height: 8%;

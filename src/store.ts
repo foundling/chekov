@@ -8,6 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    previousRoute: null,
     tasklists: [
       new Tasklist({ 
         id: 0,
@@ -80,6 +81,9 @@ export default new Vuex.Store({
     },
     ADD_TASK: (state, { listId }) => {
       state.tasklists[listId].tasks.push(new Task({ text: 'New Task' }))
+    },
+    UPDATE_PREVIOUS_ROUTE: (state, route) => {
+      state.previousRoute = route
     }
   },
   actions: {
