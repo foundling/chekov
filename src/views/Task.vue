@@ -18,7 +18,7 @@
   }
 </style>
 
-<script lang="ts">
+<script>
 
   import Vue from 'vue'
   import { mapState } from 'vuex'

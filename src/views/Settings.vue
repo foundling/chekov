@@ -1,28 +1,21 @@
 <template>
   <div class="settings" slot="content">
-    <h1>Settings</h1>
-
-    <ToggleComponent>
+    <ToggleComponent class="setting">
       <h2 slot="header">Appearance</h2>
       <Appearance slot="content" />
     </ToggleComponent>
 
-    <ToggleComponent>
+    <ToggleComponent class="setting">
       <h2 slot="header">Cloud Sync</h2>
       <Sync slot="content" />
     </ToggleComponent>
 
-    <ToggleComponent>
-      <h2 slot="header">Import Format</h2>
-      <ImportFormat slot="content" />
-    </ToggleComponent>
-
-    <ToggleComponent>
-      <h2 slot="header">Export Format</h2>
+    <ToggleComponent class="setting">
+      <h2 slot="header">Export</h2>
       <ExportFormat slot="content" />
     </ToggleComponent>
 
-    <ToggleComponent :open="true" :prevent-close="true">
+    <ToggleComponent  class="setting" :open="true" :prevent-close="true">
       <h2 slot="header">Privacy Policy</h2>
       <PrivacyPolicy slot="content" />
     </ToggleComponent>
@@ -32,15 +25,23 @@
 
 <style lang="scss">
   .settings {
-    height: 100%;
+    width: 100%;
+    padding: 0% 5%;
+    box-sizing: border-box;
+
+    .setting {
+      min-height: 20%;
+      height: 20%;
+    }
   }
 
   h2 {
-    padding: 5% 10%;
+    margin: 0;
+    padding: 0;
   }
 </style>
 
-<script lang="ts">
+<script>
 
   import Vue from 'vue'
   import { mapState } from 'vuex'

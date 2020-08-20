@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ "$1" = "--skip-build" ]
+then
+  echo 'skipping build and pushing directly to server'
+  rsync -aP dist/* alex@edibleinterfaces.com:/var/www/edibleinterfaces.com/apps/notask/
+else
+  npm run build && rsync -aP dist/* root@edibleinterfaces.com:/var/www/edibleinterfaces.com/apps/chekov/ 
+fi
+

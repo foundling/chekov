@@ -1,6 +1,6 @@
 <template>
   <div class="toggle-component">
-    <header @click="isOpen = !isOpen">
+    <header @click="isOpen = !isOpen || preventClose">
       <slot name="header" />
     </header>
     <main v-show="isOpen">
@@ -9,14 +9,15 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   header {
     width: 100%;
     padding: 0;
     margin: 0;
+    background: none;
   }
   main {
-    padding: 2%;
+    margin-top: 2%;
   }
 </style>
 
@@ -25,7 +26,7 @@
     name: 'ToggleComponent',
     data() {
       return {
-        isOpen: this.open
+        isOpen: this.open || this.preventClose
       }
     },
     props: {
